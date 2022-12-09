@@ -18,21 +18,17 @@ class ItemCreationFragment : Fragment() {
     ): View? {
         val binding = FragmentItemCreationBinding.inflate(inflater, container, false)
         val viewModel = ViewModelProvider(this).get(WorkoutsViewModel::class.java)
+        var num = 0
+
+        viewModel.hasError.observe(viewLifecycleOwner) {
+        }
+
+        binding.saveButton.setOnClickListener {
+            viewModel.createWorkout(num.toString())
+            num++
+        }
         binding.toListScreenButton.setOnClickListener {
             findNavController().navigate(R.id.create_to_list)
-        }
-        binding.saveButton.setOnClickListener {
-            //viewModel.createWorkout(binding.editTextDescription.toString())
-//            WorkoutsViewModel().createWorkout(
-//                binding.editTextDate.toString(),
-//                binding.workoutTypeEntry.toString(),
-//                binding.editTextWeight.toString().toInt(),
-//                binding.editTextReps.toString().toInt()
-//            )
-            binding.editTextDate.setText("")
-            binding.editTextDescription.setText("")
-            binding.editTextWeight.setText("")
-            binding.editTextReps.setText("")
         }
         return binding.root
     }
