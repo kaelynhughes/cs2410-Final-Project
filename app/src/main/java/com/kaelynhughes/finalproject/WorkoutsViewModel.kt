@@ -22,6 +22,10 @@ class WorkoutsViewModel: ViewModel() {
         }
     }
 
+    fun createWorkout(dateInput: String) {
+        print(dateInput)
+    }
+
     fun createWorkout(dateInput: String, typeInput: String, weightInput: Int, repsInput: Int) {
         errorMessage.value = ""
         if (dateInput.isEmpty() || typeInput.isEmpty()) {
