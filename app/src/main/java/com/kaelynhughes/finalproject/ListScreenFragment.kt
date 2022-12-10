@@ -20,12 +20,14 @@ class ListScreenFragment : Fragment() {
     ): View {
         val binding = FragmentListScreenBinding.inflate(inflater, container, false)
         val viewModel = WorkoutsViewModel()
-        viewModel.loadWorkouts()
 
         binding.toAddItemFragmentButton.setOnClickListener {
             findNavController().navigate(R.id.list_to_create)
         }
-
+        print("hi")
+//        viewModel.workouts.forEach {
+//            print(it)
+//        }
         binding.dateRecyclerView.adapter = ListScreenAdapter(viewModel.workouts)
         binding.dateRecyclerView.layoutManager = LinearLayoutManager(context)
         return binding.root

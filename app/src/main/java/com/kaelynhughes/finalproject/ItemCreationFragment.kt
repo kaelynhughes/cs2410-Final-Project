@@ -33,7 +33,7 @@ class ItemCreationFragment : Fragment() {
             binding.editTextReps.setText("")
         }
         binding.toListScreenButton.setOnClickListener {
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.create_to_list)
         }
         return binding.root
     }
