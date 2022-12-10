@@ -24,12 +24,17 @@ class ItemCreationFragment : Fragment() {
 
         binding.saveButton.setOnClickListener {
 //            viewModel.createWorkout(num.toString(), "hello")
-//            num++
+//            viewModel.createWorkout(
+//                binding.editTextDate.toString(),
+//                binding.editTextDescription.toString(),
+//                binding.editTextWeight.toString().toInt(),
+//                binding.editTextReps.toString().toInt()
+//            )
             viewModel.createWorkout(
-                binding.editTextDate.toString(),
-                binding.editTextDescription.toString(),
-                binding.editTextWeight.toString().toInt(),
-                binding.editTextReps.toString().toInt()
+                binding.editTextDate.text.toString(),
+                binding.editTextDescription.text.toString(),
+                binding.editTextWeight.text.toString().toInt(),
+                binding.editTextReps.text.toString().toInt()
             )
 
             binding.editTextDate.setText("")
