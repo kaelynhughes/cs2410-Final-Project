@@ -1,6 +1,7 @@
 package com.kaelynhughes.finalproject
 
 import androidx.room.Room
+import com.kaelynhughes.finalproject.models.Workout
 
 object WorkoutRepository {
     private val db: AppDatabase;

@@ -1,4 +1,4 @@
-package com.kaelynhughes.finalproject
+package com.kaelynhughes.finalproject.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

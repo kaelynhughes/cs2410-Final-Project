@@ -17,15 +17,19 @@ class ItemCreationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentItemCreationBinding.inflate(inflater, container, false)
-        val viewModel = ViewModelProvider(this).get(WorkoutsViewModel::class.java)
+        val viewModel = WorkoutsViewModel()
         var num = 0
 
-        viewModel.hasError.observe(viewLifecycleOwner) {
-        }
+
 
         binding.saveButton.setOnClickListener {
             viewModel.createWorkout(num.toString())
             num++
+
+            binding.editTextDate.setText("")
+            binding.editTextDescription.setText("")
+            binding.editTextWeight.setText("")
+            binding.editTextReps.setText("")
         }
         binding.toListScreenButton.setOnClickListener {
             findNavController().navigate(R.id.create_to_list)
