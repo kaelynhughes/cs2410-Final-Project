@@ -18,18 +18,8 @@ class ItemCreationFragment : Fragment() {
     ): View? {
         val binding = FragmentItemCreationBinding.inflate(inflater, container, false)
         val viewModel = WorkoutsViewModel()
-        var num = 0
-
-
 
         binding.saveButton.setOnClickListener {
-//            viewModel.createWorkout(num.toString(), "hello")
-//            viewModel.createWorkout(
-//                binding.editTextDate.toString(),
-//                binding.editTextDescription.toString(),
-//                binding.editTextWeight.toString().toInt(),
-//                binding.editTextReps.toString().toInt()
-//            )
             viewModel.createWorkout(
                 binding.editTextDate.text.toString(),
                 binding.editTextDescription.text.toString(),

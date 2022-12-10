@@ -12,11 +12,6 @@ import com.kaelynhughes.finalproject.databinding.DateScreenListItemBinding
 import com.kaelynhughes.finalproject.databinding.FragmentListScreenBinding
 import com.kaelynhughes.finalproject.models.Workout
 
-data class ListItem(
-    val date: String,
-    val description: String
-)
-
 class ListScreenFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,5 +46,6 @@ class ListScreenAdapter(val workouts: List<Workout>): RecyclerView.Adapter<ListS
         val workout = workouts[position]
         holder.binding.dateTextView.text = workout.date
         holder.binding.descriptionTextView.text = workout.description
+        holder.binding.infoTextView.text = workout.reps.toString() + " reps with " + workout.weight.toString() + " pounds"
     }
 }
