@@ -33,8 +33,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/addWorkoutTitle"
-            tools:text="Date" />
+            app:layout_constraintTop_toBottomOf="@id/addWorkoutTitle" />
 
         <EditText
             android:id="@+id/editTextDescription"
@@ -58,8 +57,19 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTextDescription"
-            tools:text="Weight" />
+            app:layout_constraintTop_toBottomOf="@id/editTextDescription" />
+
+        <EditText
+            android:id="@+id/editTextSets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Sets"
+            android:inputType="number"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextWeight" />
 
         <EditText
             android:id="@+id/editTextReps"
@@ -71,7 +81,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextWeight" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextSets" />
 
         <Button
             android:id="@+id/saveButton"

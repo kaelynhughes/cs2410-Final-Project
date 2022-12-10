@@ -10,5 +10,6 @@ data class Workout(
     @ColumnInfo var description: String,
     @ColumnInfo var date: String,
     @ColumnInfo var weight: Int,
+    @ColumnInfo var sets: Int,
     @ColumnInfo var reps: Int
 )

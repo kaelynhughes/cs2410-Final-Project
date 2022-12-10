@@ -22,12 +22,14 @@ class ItemCreationFragment : Fragment() {
                 binding.editTextDate.text.toString(),
                 binding.editTextDescription.text.toString(),
                 binding.editTextWeight.text.toString().toInt(),
+                binding.editTextSets.text.toString().toInt(),
                 binding.editTextReps.text.toString().toInt()
             )
 
             binding.editTextDate.setText("")
             binding.editTextDescription.setText("")
             binding.editTextWeight.setText("")
+            binding.editTextSets.setText("")
             binding.editTextReps.setText("")
         }
         binding.toListScreenButton.setOnClickListener {

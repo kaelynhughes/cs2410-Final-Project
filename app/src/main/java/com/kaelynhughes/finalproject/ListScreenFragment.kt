@@ -46,6 +46,7 @@ class ListScreenAdapter(val workouts: List<Workout>): RecyclerView.Adapter<ListS
         val workout = workouts[position]
         holder.binding.dateTextView.text = workout.date
         holder.binding.descriptionTextView.text = workout.description
-        holder.binding.infoTextView.text = workout.reps.toString() + " reps with " + workout.weight.toString() + " pounds"
+        holder.binding.weightTextView.text = String.format("%s pounds", workout.weight.toString())
+        holder.binding.infoTextView.text = String.format("%s sets of %s reps", workout.sets.toString(), workout.reps.toString())
     }
 }

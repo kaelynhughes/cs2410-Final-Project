@@ -22,7 +22,7 @@ class WorkoutsViewModel: ViewModel() {
         }
     }
 
-    fun createWorkout(dateInput: String, descriptionInput: String, weightInput: Int, repsInput: Int) {
+    fun createWorkout(dateInput: String, descriptionInput: String, weightInput: Int, setsInput: Int, repsInput: Int) {
         errorMessage.value = ""
         if (dateInput.isEmpty() || descriptionInput.isEmpty()) {
             errorMessage.value = "Input cannot be blank."
@@ -30,7 +30,7 @@ class WorkoutsViewModel: ViewModel() {
         }
 
         viewModelScope.launch {
-            val workout = Workout(id = 0, description = descriptionInput, date = dateInput, weight = weightInput, reps = repsInput)
+            val workout = Workout(id = 0, description = descriptionInput, date = dateInput, weight = weightInput, sets = setsInput, reps = repsInput)
             workout.id = WorkoutRepository.createWorkout(workout)
             workouts.add(workout)
         }
