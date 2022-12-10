@@ -7,20 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.kaelynhughes.finalproject.models.Workout
 import kotlinx.coroutines.launch
 
-class WorkoutsViewModel: ViewModel() {
+class ItemCreationViewModel: ViewModel() {
     var errorMessage = MutableLiveData("")
-    val workouts = ObservableArrayList<Workout>()
-
-    init {
-        loadWorkouts()
-    }
-
-    fun loadWorkouts() {
-        viewModelScope.launch {
-            val loadedWorkouts = WorkoutRepository.getAllWorkouts()
-            workouts.addAll(loadedWorkouts)
-        }
-    }
+    val done = MutableLiveData(false)
 
     fun createWorkout(dateInput: String, descriptionInput: String, weightInput: Int, setsInput: Int, repsInput: Int) {
         errorMessage.value = ""
@@ -35,12 +24,10 @@ class WorkoutsViewModel: ViewModel() {
 
         viewModelScope.launch {
             val workout = Workout(id = 0, description = descriptionInput, date = dateInput, weight = weightInput, sets = setsInput, reps = repsInput)
-            workout.id = WorkoutRepository.createWorkout(workout)
-            workouts.add(workout)
+            WorkoutRepository.createWorkout(workout)
+            done.value = true
         }
 
         println(descriptionInput)
     }
-
-
 }
