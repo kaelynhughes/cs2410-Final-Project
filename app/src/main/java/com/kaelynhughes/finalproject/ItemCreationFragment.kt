@@ -16,7 +16,6 @@ class ItemCreationFragment : Fragment() {
     ): View {
         val binding = FragmentItemCreationBinding.inflate(inflater, container, false)
         val viewModel = ItemCreationViewModel()
-        //val viewModel = WorkoutsViewModel()
 
         binding.saveButton.setOnClickListener {
             viewModel.createWorkout(
@@ -34,7 +33,6 @@ class ItemCreationFragment : Fragment() {
             binding.editTextReps.setText("")
         }
         binding.toListScreenButton.setOnClickListener {
-            //findNavController().navigate(R.id.create_to_list)
             findNavController().navigateUp()
         }
         return binding.root
