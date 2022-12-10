@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Workout(
-    @PrimaryKey(autoGenerate = true) var id: Long,
-    @ColumnInfo var description: String,
-    @ColumnInfo var date: String,
-    @ColumnInfo var weight: Int,
-    @ColumnInfo var reps: Int
+    @PrimaryKey var id: Long,
+    @ColumnInfo val description: String,
+    @ColumnInfo val date: String,
+    @ColumnInfo val weight: Int,
+    @ColumnInfo val reps: Int
 )

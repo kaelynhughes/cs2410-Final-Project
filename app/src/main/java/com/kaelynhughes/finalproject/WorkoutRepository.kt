@@ -29,7 +29,7 @@ object WorkoutRepository {
     }
 
     suspend fun update(workout: Workout) {
-        db.getWorkoutsDao().updateTodo(workout)
+        db.getWorkoutsDao().updateWorkout(workout)
         workoutsCache[workoutsCache.indexOfFirst {
             it.id == workout.id
         }] = workout

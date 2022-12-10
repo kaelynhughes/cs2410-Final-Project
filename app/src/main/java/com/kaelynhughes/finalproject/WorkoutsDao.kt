@@ -8,12 +8,15 @@ import com.kaelynhughes.finalproject.models.Workout
 
 @Dao
 interface WorkoutsDao {
-    @Query("SELECT * FROM workout")
-    suspend fun getAllWorkouts(): List<Workout>
-
     @Insert
     suspend fun createWorkout(workout: Workout): Long
 
     @Update
-    suspend fun updateTodo(workout: Workout)
+    suspend fun updateWorkout(workout: Workout)
+
+    @Query("SELECT * FROM workout")
+    suspend fun getAllWorkouts(): List<Workout>
+
+    @Query("SELECT date FROM workout")
+    suspend fun getAllDates(): List<String>
 }
