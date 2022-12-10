@@ -18,6 +18,6 @@ object WorkoutRepository {
     }
 
     suspend fun getAllWorkouts(): List<Workout> {
-        return listOf()
+        return db.getWorkoutsDao().getAllWorkouts()
     }
 }

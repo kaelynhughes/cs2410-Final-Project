@@ -10,6 +10,18 @@ import kotlinx.coroutines.launch
 class WorkoutsViewModel: ViewModel() {
     var errorMessage = MutableLiveData("")
     val workouts = ObservableArrayList<Workout>()
+
+    init {
+        loadWorkouts()
+    }
+
+    fun loadWorkouts() {
+        viewModelScope.launch {
+            val loadedWorkouts = WorkoutRepository.getAllWorkouts()
+            workouts.addAll(loadedWorkouts)
+        }
+    }
+
     fun createWorkout(dateInput: String, descriptionInput: String, weightInput: Int, repsInput: Int) {
         errorMessage.value = ""
         if (dateInput.isEmpty() || descriptionInput.isEmpty()) {

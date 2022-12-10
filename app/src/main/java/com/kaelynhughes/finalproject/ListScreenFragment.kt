@@ -29,33 +29,7 @@ class ListScreenFragment : Fragment() {
             findNavController().navigate(R.id.list_to_create)
         }
 
-        val workouts1 = listOf(
-            Workout(0, "11/25/2022", "workout 1", 0, 0),
-            Workout(0, "11/26/2022", "workout 2", 0, 0),
-            Workout(0, "11/27/2022", "workout 3", 0, 0),
-            Workout(0, "11/28/2022", "workout 4", 0, 0),
-            Workout(0, "11/29/2022", "workout 5", 0, 0),
-            Workout(0, "11/30/2022", "workout 6", 0, 0),
-            Workout(0, "12/1/2022", "workout 7", 0, 0),
-            Workout(0, "12/2/2022", "workout 8", 0, 0),
-            Workout(0, "12/3/2022", "workout 9", 0, 0),
-            Workout(0, "12/4/2022", "workout 10", 0, 0)
-        )
-//        val dates = listOf(
-//            ListItem("11/25/2022", "workout 1"),
-//            ListItem("11/26/2022", "workout 2"),
-//            ListItem("11/27/2022", "workout 3"),
-//            ListItem("11/28/2022", "workout 4"),
-//            ListItem("11/29/2022", "workout 5"),
-//            ListItem("11/30/2022", "workout 6"),
-//            ListItem("12/1/2022", "workout 7"),
-//            ListItem("12/2/2022", "workout 8"),
-//            ListItem("12/3/2022", "workout 9"),
-//            ListItem("12/4/2022", "workout 10"),
-        //)
-        //val dates = WorkoutRepository.getAllWorkouts()
-        binding.dateRecyclerView.adapter = ListScreenAdapter(workouts1)
-        //binding.dateRecyclerView.adapter = ListScreenAdapter(viewModel.workouts)
+        binding.dateRecyclerView.adapter = ListScreenAdapter(viewModel.workouts)
         binding.dateRecyclerView.layoutManager = LinearLayoutManager(this.context)
         return binding.root
     }
