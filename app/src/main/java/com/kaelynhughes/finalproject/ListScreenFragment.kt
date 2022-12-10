@@ -17,15 +17,17 @@ class ListScreenFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentListScreenBinding.inflate(inflater, container, false)
         val viewModel = WorkoutsViewModel()
+        viewModel.loadWorkouts()
+
         binding.toAddItemFragmentButton.setOnClickListener {
             findNavController().navigate(R.id.list_to_create)
         }
 
         binding.dateRecyclerView.adapter = ListScreenAdapter(viewModel.workouts)
-        binding.dateRecyclerView.layoutManager = LinearLayoutManager(this.context)
+        binding.dateRecyclerView.layoutManager = LinearLayoutManager(context)
         return binding.root
     }
 }

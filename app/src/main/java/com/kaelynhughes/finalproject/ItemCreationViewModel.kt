@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 
 class ItemCreationViewModel: ViewModel() {
     var errorMessage = MutableLiveData("")
-    val done = MutableLiveData(false)
 
     fun createWorkout(dateInput: String, descriptionInput: String, weightInput: Int, setsInput: Int, repsInput: Int) {
         errorMessage.value = ""
@@ -25,9 +24,6 @@ class ItemCreationViewModel: ViewModel() {
         viewModelScope.launch {
             val workout = Workout(id = 0, description = descriptionInput, date = dateInput, weight = weightInput, sets = setsInput, reps = repsInput)
             WorkoutRepository.createWorkout(workout)
-            done.value = true
         }
-
-        println(descriptionInput)
     }
 }
