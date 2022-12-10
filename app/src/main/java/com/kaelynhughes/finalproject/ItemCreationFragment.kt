@@ -23,8 +23,14 @@ class ItemCreationFragment : Fragment() {
 
 
         binding.saveButton.setOnClickListener {
-            viewModel.createWorkout(num.toString())
-            num++
+//            viewModel.createWorkout(num.toString(), "hello")
+//            num++
+            viewModel.createWorkout(
+                binding.editTextDate.toString(),
+                binding.editTextDescription.toString(),
+                binding.editTextWeight.toString().toInt(),
+                binding.editTextReps.toString().toInt()
+            )
 
             binding.editTextDate.setText("")
             binding.editTextDescription.setText("")

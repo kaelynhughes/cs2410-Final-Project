@@ -29,7 +29,18 @@ class ListScreenFragment : Fragment() {
             findNavController().navigate(R.id.list_to_create)
         }
 
-        //val dates =
+        val workouts1 = listOf(
+            Workout(0, "11/25/2022", "workout 1", 0, 0),
+            Workout(0, "11/26/2022", "workout 2", 0, 0),
+            Workout(0, "11/27/2022", "workout 3", 0, 0),
+            Workout(0, "11/28/2022", "workout 4", 0, 0),
+            Workout(0, "11/29/2022", "workout 5", 0, 0),
+            Workout(0, "11/30/2022", "workout 6", 0, 0),
+            Workout(0, "12/1/2022", "workout 7", 0, 0),
+            Workout(0, "12/2/2022", "workout 8", 0, 0),
+            Workout(0, "12/3/2022", "workout 9", 0, 0),
+            Workout(0, "12/4/2022", "workout 10", 0, 0)
+        )
 //        val dates = listOf(
 //            ListItem("11/25/2022", "workout 1"),
 //            ListItem("11/26/2022", "workout 2"),
@@ -43,18 +54,18 @@ class ListScreenFragment : Fragment() {
 //            ListItem("12/4/2022", "workout 10"),
         //)
         //val dates = WorkoutRepository.getAllWorkouts()
-        //binding.dateRecyclerView.adapter = ListScreenAdapter(dates)
-        binding.dateRecyclerView.adapter = ListScreenAdapter(viewModel.workouts)
+        binding.dateRecyclerView.adapter = ListScreenAdapter(workouts1)
+        //binding.dateRecyclerView.adapter = ListScreenAdapter(viewModel.workouts)
         binding.dateRecyclerView.layoutManager = LinearLayoutManager(this.context)
         return binding.root
     }
 }
 
-class ListScreenAdapter(val dates: List<Workout>): RecyclerView.Adapter<ListScreenAdapter.ViewHolder>() {
+class ListScreenAdapter(val workouts: List<Workout>): RecyclerView.Adapter<ListScreenAdapter.ViewHolder>() {
     class ViewHolder(val binding: DateScreenListItemBinding): RecyclerView.ViewHolder(binding.root) {}
 
     override fun getItemCount(): Int {
-        return dates.size
+        return workouts.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -63,8 +74,8 @@ class ListScreenAdapter(val dates: List<Workout>): RecyclerView.Adapter<ListScre
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val date = dates[position]
-        holder.binding.dateTextView.text = date.date
-        holder.binding.descriptionTextView.text = date.description
+        val workout = workouts[position]
+        holder.binding.dateTextView.text = workout.date
+        holder.binding.descriptionTextView.text = workout.description
     }
 }
